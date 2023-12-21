@@ -1,20 +1,34 @@
-// const heading = React.createElement("h1", { id: 'heading' }, "Hello From React");
-//     const root = ReactDOM.createRoot(document.getElementById("root"));
-//     root.render(heading);
-//     console.log(heading);
+import React from "react";
+import  ReactDOM  from "react-dom/client";
 
+//React Element
+const heading = React.createElement("div",{id:'parent'},
+[React.createElement("div",{id:"child"},
+[React.createElement('h2',{id:'heading'},"hello i am h2"),
+React.createElement('h3',{id:'heading'},"I am h3")])]);
 
- const parent =React.createElement("div",{id:'parent'},
- [React.createElement("div",{id:'child'},
- [React.createElement("h1",{},"hello I Am Children"),
- React.createElement("h2",{},"hello I Am h2")]),
+//JSX
 
- React.createElement("div",{id:'child'},
- [React.createElement("h1",{},"hello I Am Children"),
- React.createElement("h2",{},"hello I Am h2")])
-])
- const root = ReactDOM.createRoot(document.getElementById("root"));
+const Heading2 = () =>{
+    return(
+        <>
+        <h1>hello</h1>
+        <h2>hello new</h2>
+        </>
+    )
+}
+const jsx ='hi Everyone';
 
- //const root = ReactDom.createRoot(document.getElementById("root"));
-root.render(parent);
-console.log(parent)
+const Fnforjsx = () => <h5>Inside JSX {jsx}</h5>
+
+const Heading1 = () => (<div className="parent">
+<div className="child">
+    <Heading2/>
+    <p id='heading'>Hello I am {Fnforjsx()}</p>
+    <h3>Hello I am h3</h3>
+</div>
+
+</div>)
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(<Heading1/>)
